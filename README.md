@@ -1,6 +1,6 @@
 # Front-End do Sistema de Estoque e Vendas
 
-Este repositório contém o código-fonte e os designs do **front-end** para um sistema de estoque e vendas. Ele complementa o projeto de **back-end desenvolvido em Java com Spring Boot**, fornecendo a interface de usuário para interação com os módulos de produtos, clientes e vendas.
+Este repositório irá conter o código-fonte e os designs do **front-end** para um sistema de estoque e vendas. Ele complementa o projeto de **back-end desenvolvido em Java com Spring Boot**, fornecendo a interface de usuário para interação com os módulos de produtos, clientes e vendas.
 
 ## Visão Geral do Projeto
 
