@@ -4,7 +4,7 @@ Este repositório irá conter o código-fonte e os designs do **front-end** para
 
 ## Visão Geral do Projeto
 
-O objetivo deste projeto é criar uma interface intuitiva e responsiva que permita aos usuários (administradores, staff) gerenciar o estoque, cadastrar clientes, registrar vendas e visualizar relatórios de forma eficiente. O design está sendo prototipado no Figma, com a implementação em HTML, CSS (utilizando Tailwind CSS) e JavaScript para a lógica de front-end.
+O objetivo deste projeto é criar uma interface intuitiva e responsiva que permita aos usuários (administradores, staff) gerenciar o estoque, cadastrar clientes, registrar vendas e visualizar relatórios de forma eficiente. O design está sendo prototipado no Figma, com a implementação em HTML, CSS (utilizando Tailwind CSS) e Java para back-end.
 
 ## Designs e Wireframes (Figma)
 
