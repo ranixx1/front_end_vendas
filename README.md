@@ -12,5 +12,4 @@ Os designs iniciais para as telas da aplicação foram desenvolvidos no Figma, f
 
 | Tela de Login | Tela do Staff | Tela de Clientes |
 |:-------------:|:-------------:|:----------------:|
-| ![Tela de Login](https://github.com/user-attachments/assets/a95c4b0c-f030-4344-ac47-2026bea015b7) | ![Tela do Staff](https://github.com/user-attachments/assets/5b7ac023-287d-4c97-99c9-c9bef9250753) | ![Tela de Clientes]|
-(https://github.com/user-attachments/assets/8250250a-8e68-42dd-96cc-feaa0c8e2e51)
+| ![Tela de Login](https://github.com/user-attachments/assets/a95c4b0c-f030-4344-ac47-2026bea015b7) | ![Tela do Staff](https://github.com/user-attachments/assets/5b7ac023-287d-4c97-99c9-c9bef9250753) | ![Tela de Clientes](https://github.com/user-attachments/assets/8250250a-8e68-42dd-96cc-feaa0c8e2e51) |
