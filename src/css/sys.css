@@ -57,7 +57,7 @@ body {
     align-items: center;
     color: white;
     font-weight: bold;
-    font-size: 20px; /* Fonte maior */
+    font-size: 20px; 
     box-shadow: 0 4px 10px rgba(106, 75, 138, 0.3);
 }
 
@@ -70,7 +70,7 @@ body {
 
 .greeting p {
     color: #888;
-    font-size: 16px; /* Texto maior */
+    font-size: 16px; 
     font-weight: 500;
 }
 
@@ -209,7 +209,7 @@ body {
     background: linear-gradient(135deg, #89739c 0%, #6a4b8a 100%);
     border-radius: 30px;
     color: white;
-    font-size: 18px; /* Fonte maior */
+    font-size: 18px; 
     font-weight: 600;
     text-align: center;
     cursor: pointer;
@@ -498,6 +498,7 @@ body {
     font-weight: 600;
     font-size: 14px;
     text-transform: uppercase;
+
 /* Scrollbar para o container da tabela */
 .table-container::-webkit-scrollbar {
     width: 8px;
@@ -548,8 +549,6 @@ body {
 #productCrudForm {
     display: flex;
     flex-direction: column;
-    /* remove align-items: center; aqui para que os itens usem 100% da largura,
-       e o text-align: left dos labels funcione bem */
     gap: 15px; /* Espaçamento entre os grupos de label/input */
     max-width: 500px;
     margin: 0 auto 40px auto;
@@ -573,7 +572,7 @@ body {
     font-weight: 500;
     color: #444;
     margin-bottom: 8px; /* Mais espaço entre o label e o input */
-    padding-left: 0; /* Remover padding-left: 5px; se foi adicionado antes */
+    padding-left: 0; 
     box-sizing: border-box;
 }
 
@@ -587,7 +586,7 @@ body {
     color: #333;
     box-sizing: border-box;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    margin-bottom: 0; /* Remover margin-bottom: 15px; aqui para usar o gap do form-group */
+    margin-bottom: 0; 
 }
 
 #productCrudForm input[type="text"]:focus,
@@ -600,7 +599,7 @@ body {
 /* Contêiner para os botões "Salvar" e "Cancelar" */
 #productCrudForm div.form-buttons {
     display: flex;
-    justify-content: center; /* Centraliza os botões */
+    justify-content: center;
     gap: 15px; /* Espaço entre os botões */
     width: 100%; /* Ocupa a largura total para centralizar */
     margin-top: 20px; /* Mais espaço acima dos botões */
