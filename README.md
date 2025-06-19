@@ -11,7 +11,7 @@ O objetivo deste projeto é criar uma interface intuitiva e responsiva que permi
 * **Front-end:**
     * **HTML5:** Estruturação da interface.
     * **CSS3:** Estilização e responsividade, com foco em um design moderno e adaptativo. (Foi utilizado CSS puro com uma estrutura organizada e media queries para responsividade em vez de um framework CSS como o Tailwind CSS, embora este tenha sido uma consideração inicial.)
-    * **JavaScript Vanilla:** Lógica de interatividade, consumo da API e manipulação do DOM.
+    * **JavaScript:** Lógica de interatividade, consumo da API e manipulação do DOM.
     * **Chart.js:** Biblioteca para a criação de gráficos dinâmicos de vendas e estoque.
     * **Font Awesome:** Para ícones na interface.
     * **Google Fonts (Poppins):** Para uma tipografia moderna e legível.
