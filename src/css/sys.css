@@ -61,3 +61,43 @@ body {
     box-shadow: 0 4px 10px rgba(106, 75, 138, 0.3);
 }
 
+.greeting h1 {
+    font-size: 24px; /* Título maior */
+    font-weight: 700;
+    color: #2c2c2c;
+    line-height: 1.2;
+}
+
+.greeting p {
+    color: #888;
+    font-size: 16px; /* Texto maior */
+    font-weight: 500;
+}
+
+.actions {
+    display: flex;
+    gap: 20px; /* Mais espaçamento entre os ícones */
+}
+
+.action-btn {
+    width: 45px; /* Botões maiores */
+    height: 45px;
+    border-radius: 15px; /* Bordas mais arredondadas */
+    background: #f5f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6a4b8a;
+    font-size: 20px; /* Ícones maiores */
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    background: #eaeaea;
+    transform: translateY(-2px); /* Pequeno efeito de elevação */
+}
+.action-btn:active {
+    transform: scale(0.95);
+    background: #dcdcdc;
+}
