@@ -13,3 +13,16 @@ function updateChartBarsVendas() {
 }
 updateChartBarsVendas();
 
+// Função para simular o novo gráfico de barras (Estoque por Categoria)
+function updateChartBarsEstoque() {
+    const bars = document.querySelectorAll('.stock-section.chart-section:nth-of-type(2) .chart-bar');
+    const values = [350, 250, 450, 200, 325]; // Valores de exemplo para estoque
+    const maxVal = 500; 
+
+    bars.forEach((bar, index) => {
+        const percentage = (values[index] / maxVal) * 100;
+        bar.style.height = `${percentage}%`;
+        bar.setAttribute('data-value', values[index]);
+    });
+}
+updateChartBarsEstoque();
