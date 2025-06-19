@@ -40,3 +40,24 @@ body {
     align-items: center;
     border-bottom: 1px solid #f0f0f0;
 }
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Mais espaçamento */
+}
+
+.profile {
+    width: 50px; /* Perfil um pouco maior */
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6a4b8a 0%, #89739c 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px; /* Fonte maior */
+    box-shadow: 0 4px 10px rgba(106, 75, 138, 0.3);
+}
+
