@@ -30,76 +30,18 @@
             </div>
         </div>
 
-        <div class="content">
-            <div class="stock-section chart-section">
-                <div class="chart-title">Vendas Semanais</div>
-                <div class="chart-container">
-                    <div class="y-axis">
-                        <span>300</span>
-                        <span>200</span>
-                        <span>100</span>
-                        <span>0</span>
-                    </div>
-                    <div class="bar-wrapper">
-                        <div class="chart-bar" style="height: 60%;" data-value="180"></div>
-                        <div class="bar-label">Seg</div>
-                    </div>
-                    <div class="bar-wrapper">
-                        <div class="chart-bar" style="height: 80%;" data-value="240"></div>
-                        <div class="bar-label">Ter</div>
-                    </div>
-                    <div class="bar-wrapper">
-                        <div class="chart-bar" style="height: 50%;" data-value="150"></div>
-                        <div class="bar-label">Qua</div>
-                    </div>
-                    <div class="bar-wrapper">
-                        <div class="chart-bar" style="height: 90%;" data-value="270"></div>
-                        <div class="bar-label">Qui</div>
-                    </div>
-                    <div class="bar-wrapper">
-                        <div class="chart-bar" style="height: 70%;" data-value="210"></div>
-                        <div class="bar-label">Sex</div>
-                    </div>
-                    <div class="bar-wrapper">
-                        <div class="chart-bar" style="height: 40%;" data-value="120"></div>
-                        <div class="bar-label">Sáb</div>
-                    </div>
-                </div>
+        <div class="stock-section chart-section">
+            <div class="chart-title">Vendas Semanais</div>
+            <div class="chart-container">
+                <canvas id="weeklySalesChart"></canvas>
             </div>
+        </div>
 
-            <div class="stock-section chart-section">
-                <div class="chart-title">Estoque por Categoria</div>
-                <div class="chart-container">
-                    <div class="y-axis">
-                        <span>500</span>
-                        <span>400</span>
-                        <span>300</span>
-                        <span>200</span>
-                        <span>100</span>
-                        <span>0</span>
-                    </div>
-                    <div class="bar-wrapper">
-                        <div class="chart-bar" style="height: 70%; background-color: #9c8bb3;" data-value="350"></div>
-                        <div class="bar-label">Eletrônicos</div>
-                    </div>
-                    <div class="bar-wrapper">
-                        <div class="chart-bar" style="height: 50%; background-color: #7b6ba3;" data-value="250"></div>
-                        <div class="bar-label">Roupas</div>
-                    </div>
-                    <div class="bar-wrapper">
-                        <div class="chart-bar" style="height: 90%; background-color: #6a4b8a;" data-value="450"></div>
-                        <div class="bar-label">Alimentos</div>
-                    </div>
-                    <div class="bar-wrapper">
-                        <div class="chart-bar" style="height: 40%; background-color: #89739c;" data-value="200"></div>
-                        <div class="bar-label">Limpeza</div>
-                    </div>
-                    <div class="bar-wrapper">
-                        <div class="chart-bar" style="height: 65%; background-color: #a899b3;" data-value="325"></div>
-                        <div class="bar-label">Decoração</div>
-                    </div>
-                </div>
+        <div class="stock-section chart-section">
+            <div class="chart-title">Estoque por Produto</div> <div class="chart-container">
+                <canvas id="stockByProductChart"></canvas>
             </div>
+        </div>
 
             <div class="stock-section action-buttons">
                 <div class="action-button" id="registerSaleButton">
@@ -121,6 +63,9 @@
                 <div class="action-button" id="manageStockButton">
                     <i class="fas fa-boxes"></i>
                     Gerenciar Estoque
+                </div>
+                <div class="action-button" id="refreshChartsButton">
+                    <i class="fas fa-sync-alt"></i> Atualizar Gráficos
                 </div>
                 <div class="action-button" id="listProductsButton">
                     <i class="fas fa-boxes"></i>
@@ -157,6 +102,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="src/js/sys.js"></script>
 </body>
 
