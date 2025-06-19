@@ -58,10 +58,9 @@ Para rodar este projeto front-end localmente, siga os passos abaixo:
 
 2.  **Clone o Repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/front_end_vendas.git](https://github.com/seu-usuario/front_end_vendas.git)
+    git clone [https://github.com/ranixx1/front_end_vendas.git](https://github.com/ranixx1/front_end_vendas.git)
     cd front_end_vendas
     ```
-    (Substitua `https://github.com/seu-usuario/front_end_vendas.git` pelo URL real do seu repositório).
 
 3.  **Abra o `index.html`:**
     * Simplesmente abra o arquivo `index.html` no seu navegador. Você pode fazer isso arrastando o arquivo para a janela do navegador ou clicando duas vezes nele no explorador de arquivos.
