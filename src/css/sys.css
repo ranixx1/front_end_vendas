@@ -446,67 +446,58 @@ body {
     font-weight: 700;
     color: #2c2c2c;
     margin-bottom: 15px;
-    text-align: center;
+    text-align: center; /* Já está centralizado */
 }
 
 #dataDisplayArea h3 {
     font-size: 18px;
     font-weight: 600;
-    color: #6a4b8a; /* Cor roxa */
+    color: #6a4b8a;
     margin-bottom: 10px;
-    text-align: center;
+    text-align: center; /* Já está centralizado */
 }
 
 /* Estilos para o container da tabela (para rolagem e espaçamento) */
 .table-container {
-    max-height: 400px; /* Limita a altura e adiciona rolagem se necessário */
-    overflow-y: auto; /* Adiciona barra de rolagem vertical */
+    max-height: 400px;
+    overflow-y: auto;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
+    /* Adicione estas linhas para centralizar o contêiner da tabela como um bloco */
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content; /* Permite que o container se ajuste ao conteúdo ou max-width */
+    max-width: 100%; /* Garante que não exceda a largura do pai */
 }
 
 /* Estilos para a tabela em si */
 .data-table {
-    width: 100%;
-    border-collapse: collapse; /* Colapsa as bordas das células */
+    width: 100%; /* Mantém a largura de 100% dentro do table-container */
+    border-collapse: collapse;
     margin-bottom: 15px;
     background-color: #ffffff;
 }
 
 .data-table thead tr {
-    background-color: #f0f0f0; /* Fundo mais claro para o cabeçalho */
+    background-color: #f0f0f0;
     color: #333;
-    text-align: left;
+    text-align: left; /* Mantenha 'left' para o texto dentro do cabeçalho */
 }
 
 .data-table th,
 .data-table td {
-    padding: 12px 15px; /* Mais padding para maior legibilidade */
-    border-bottom: 1px solid #e8e8e8; /* Borda inferior mais suave */
+    padding: 12px 15px;
+    border-bottom: 1px solid #e8e8e8;
+    /* Adicione estas linhas para centralizar o texto dentro das células */
+    text-align: center;
 }
 
 .data-table th {
     font-weight: 600;
     font-size: 14px;
     text-transform: uppercase;
-}
-
-.data-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9; /* Fundo zebrado para linhas pares */
-}
-
-.data-table tbody tr:hover {
-    background-color: #f1f1f1; /* Destaca a linha ao passar o mouse */
-    cursor: pointer;
-}
-
-.data-table td {
-    font-size: 13px;
-    color: #555;
-}
-
 /* Scrollbar para o container da tabela */
 .table-container::-webkit-scrollbar {
     width: 8px;
@@ -524,4 +515,5 @@ body {
 
 .table-container::-webkit-scrollbar-thumb:hover {
     background: #a899b3;
+}
 }
