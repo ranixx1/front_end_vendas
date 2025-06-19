@@ -7,11 +7,15 @@ let stockByProductChartInstance;
 // --- Funções de interação com o Back-end ---
 
 // Função auxiliar para controlar a visibilidade das tabelas e mensagens
-function toggleTableVisibility(productsVisible, clientsVisible) {
+// AGORA COM O PARÂMETRO 'salesVisible'
+function toggleTableVisibility(productsVisible, clientsVisible, salesVisible) { 
     const productsTableTitle = document.getElementById('productsTableTitle');
     const productsTableContainer = document.getElementById('productsTableContainer');
     const clientsTableTitle = document.getElementById('clientsTableTitle');
     const clientsTableContainer = document.getElementById('clientsTableContainer');
+    const salesTableTitle = document.getElementById('salesTableTitle');
+    const salesTableContainer = document.getElementById('salesTableContainer');
+    
     const initialMessage = document.getElementById('initialMessage');
 
     if (productsTableTitle) productsTableTitle.style.display = productsVisible ? 'block' : 'none';
@@ -19,15 +23,20 @@ function toggleTableVisibility(productsVisible, clientsVisible) {
     if (clientsTableTitle) clientsTableTitle.style.display = clientsVisible ? 'block' : 'none';
     if (clientsTableContainer) clientsTableContainer.style.display = clientsVisible ? 'block' : 'none';
     
+    if (salesTableTitle) salesTableTitle.style.display = salesVisible ? 'block' : 'none';
+    if (salesTableContainer) salesTableContainer.style.display = salesVisible ? 'block' : 'none';
+    
     if (initialMessage) {
-        initialMessage.style.display = (!productsVisible && !clientsVisible) ? 'block' : 'none';
+        // Ajusta a condição para incluir a nova tabela de vendas
+        initialMessage.style.display = (!productsVisible && !clientsVisible && !salesVisible) ? 'block' : 'none';
     }
 }
 
 // Função para buscar produtos do seu back-end
 async function fetchProducts() {
     try {
-        toggleTableVisibility(false, false); // Oculta tudo antes de carregar
+        // CHAMADA ATUALIZADA: Adicionado o terceiro 'false'
+        toggleTableVisibility(false, false, false); // Oculta tudo antes de carregar
         const productsTableBody = document.getElementById('productsTableBody');
         if (productsTableBody) productsTableBody.innerHTML = '<tr><td colspan="4" style="text-align: center;">Carregando produtos...</td></tr>';
 
@@ -45,7 +54,8 @@ async function fetchProducts() {
         console.error('Erro ao buscar produtos:', error);
         const productsTableBody = document.getElementById('productsTableBody');
         if (productsTableBody) productsTableBody.innerHTML = `<tr><td colspan="4" style="color: red; text-align: center;">Erro ao carregar produtos: ${error.message}</td></tr>`;
-        toggleTableVisibility(true, false); // Mostra o título e a tabela com a mensagem de erro
+        // CHAMADA ATUALIZADA: Adicionado o terceiro 'false'
+        toggleTableVisibility(true, false, false); // Mostra o título e a tabela com a mensagem de erro
     }
 }
 
@@ -65,14 +75,16 @@ function displayProducts(products) {
                 row.insertCell().textContent = `R$ ${parseFloat(product.precoVenda).toFixed(2).replace('.', ',')}`; // Formata para BRL
             });
         }
-        toggleTableVisibility(true, false); // Mostra a tabela de produtos, esconde a de clientes
+        // CHAMADA ATUALIZADA: Adicionado o terceiro 'false'
+        toggleTableVisibility(true, false, false); // Mostra a tabela de produtos, esconde a de clientes
     }
 }
 
 // Função para buscar clientes do seu back-end
 async function fetchClients() {
     try {
-        toggleTableVisibility(false, false); // Oculta tudo antes de carregar
+        // CHAMADA ATUALIZADA: Adicionado o terceiro 'false'
+        toggleTableVisibility(false, false, false); // Oculta tudo antes de carregar
         const clientsTableBody = document.getElementById('clientsTableBody');
         if (clientsTableBody) clientsTableBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Carregando clientes...</td></tr>';
 
@@ -90,7 +102,8 @@ async function fetchClients() {
         console.error('Erro ao buscar clientes:', error);
         const clientsTableBody = document.getElementById('clientsTableBody');
         if (clientsTableBody) clientsTableBody.innerHTML = `<tr><td colspan="5" style="color: red; text-align: center;">Erro ao carregar clientes: ${error.message}</td></tr>`;
-        toggleTableVisibility(false, true); // Mostra o título e a tabela com a mensagem de erro
+        // CHAMADA ATUALIZADA: Adicionado o terceiro 'false'
+        toggleTableVisibility(false, true, false); // Mostra o título e a tabela com a mensagem de erro
     }
 }
 
@@ -111,7 +124,57 @@ function displayClients(clients) {
                 row.insertCell().textContent = client.telefone || 'N/A'; // Lidar com telefone opcional
             });
         }
-        toggleTableVisibility(false, true); // Mostra a tabela de clientes, esconde a de produtos
+        // CHAMADA ATUALIZADA: Adicionado o terceiro 'false'
+        toggleTableVisibility(false, true, false); // Mostra a tabela de clientes, esconde a de produtos
+    }
+}
+
+// Função para buscar vendas do seu back-end
+async function fetchSales() {
+    try {
+        toggleTableVisibility(false, false, false); // Oculta tudo antes de carregar
+        const salesTableBody = document.getElementById('salesTableBody');
+        if (salesTableBody) salesTableBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Carregando vendas...</td></tr>';
+
+        const response = await fetch(`${BASE_URL}/api/vendas`); // Chama o endpoint de vendas
+        
+        if (!response.ok) {
+            throw new Error(`Erro HTTP: ${response.status}`);
+        }
+
+        const sales = await response.json();
+        console.log('Vendas do Back-end:', sales);
+        displaySales(sales); 
+
+    } catch (error) {
+        console.error('Erro ao buscar vendas:', error);
+        const salesTableBody = document.getElementById('salesTableBody');
+        if (salesTableBody) salesTableBody.innerHTML = `<tr><td colspan="5" style="color: red; text-align: center;">Erro ao carregar vendas: ${error.message}</td></tr>`;
+        toggleTableVisibility(false, false, true); // Mostra o título e a tabela com a mensagem de erro
+    }
+}
+
+// Função para exibir vendas na tabela
+function displaySales(sales) {
+    const salesTableBody = document.getElementById('salesTableBody');
+    if (salesTableBody) {
+        salesTableBody.innerHTML = ''; // Limpa as linhas existentes
+        if (sales.length === 0) {
+            salesTableBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Nenhuma venda encontrada.</td></tr>';
+        } else {
+            sales.forEach(sale => {
+                const row = salesTableBody.insertRow();
+                row.insertCell().textContent = sale.id;
+                row.insertCell().textContent = sale.cliente ? sale.cliente.nome : 'N/A'; // Exibe o nome do cliente
+                // Formata a data e hora
+                const saleDate = new Date(sale.dataVenda);
+                row.insertCell().textContent = saleDate.toLocaleString('pt-BR'); 
+                // Formata o valor total para moeda
+                row.insertCell().textContent = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(parseFloat(sale.valorTotal));
+                row.insertCell().textContent = sale.itens ? sale.itens.length : 0; // Mostra a quantidade de itens
+            });
+        }
+        toggleTableVisibility(false, false, true); // Mostra a tabela de vendas, esconde as outras
     }
 }
 
@@ -397,7 +460,13 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.warn("Botão 'Atualizar Gráficos' não encontrado com o ID 'refreshChartsButton'.");
     }
-
+    // Botão Listar Vendas
+    const listSalesButton = document.getElementById('listSalesButton');
+    if (listSalesButton) {
+        listSalesButton.addEventListener('click', fetchSales);
+    } else {
+        console.warn("Botão 'Listar Vendas' não encontrado com o ID 'listSalesButton'.");
+    }
     // Outros botões de ação (com alerts temporários)
     const reportsButton = document.getElementById('reportsButton');
     if (reportsButton) {
@@ -445,5 +514,5 @@ document.querySelectorAll('.action-button').forEach(button => {
         setTimeout(() => {
             this.style.transform = '';
         }, 150);
-    });
 });
+})
