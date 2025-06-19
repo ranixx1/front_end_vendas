@@ -1,0 +1,21 @@
+
+/* Estilos base para o layout desktop */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-tap-highlight-color: transparent; /* Mantido para uma boa experiência em touchscreens maiores */
+}
+
+body {
+    background-color: #f8f9fa; /* Fundo claro para o corpo */
+    min-height: 100vh; /* Garante que o body ocupe a altura mínima da viewport */
+    display: flex;
+    flex-direction: column; /* Colunas para header, content e footer */
+    align-items: center; /* Centraliza o conteúdo principal horizontalmente */
+    color: #333;
+    padding: 20px; /* Espaçamento ao redor de todo o container principal */
+    box-sizing: border-box; /* Garante que o padding não adicione largura extra */
+}
+
