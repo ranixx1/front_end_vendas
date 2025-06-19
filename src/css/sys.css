@@ -291,13 +291,33 @@ body {
 }
 
 .content::-webkit-scrollbar-thumb {
-    background: #c5b5d1;
+    background: #89739c; /* Roxo mais escuro para o "polegar" do scroll */
     border-radius: 10px;
 }
 
 .content::-webkit-scrollbar-thumb:hover {
-    background: #a899b3;
+    background: #6a4b8a; /* Roxo ainda mais escuro ao passar o mouse */
 }
+
+/* Scrollbar para o container da tabela */
+.table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #89739c; /* Roxo mais escuro para o "polegar" do scroll */
+    border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #6a4b8a; /* Roxo ainda mais escuro ao passar o mouse */
+}
+
 
 /* --- Media Queries para Mobile (max-width: 768px) --- */
 /* Revertendo estilos para mobile quando a tela é pequena */
@@ -315,6 +335,8 @@ body {
         height: calc(100vh - 50px); /* Altura total menos a barra de status */
         border-radius: 0; /* Sem bordas arredondadas no mobile */
         box-shadow: none; /* Sem sombra no mobile */
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     /* Barra de status do dispositivo (Visível apenas em Mobile) */
