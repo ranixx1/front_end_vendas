@@ -279,3 +279,22 @@ body {
 .nav-item span {
     font-weight: 500;
 }
+
+/* Scroll personalizado */
+.content::-webkit-scrollbar {
+    width: 8px; /* Largura maior para desktop */
+}
+
+.content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: #c5b5d1;
+    border-radius: 10px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: #a899b3;
+}
