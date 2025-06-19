@@ -26,3 +26,21 @@ function updateChartBarsEstoque() {
     });
 }
 updateChartBarsEstoque();
+
+// Adiciona interatividade aos itens de navegação
+document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function() {
+        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+// Adiciona um pequeno efeito de escala ao clicar nos botões de ação
+document.querySelectorAll('.action-button').forEach(button => {
+    button.addEventListener('click', function() {
+        this.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 150);
+    });
+});
