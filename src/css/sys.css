@@ -517,3 +517,207 @@ body {
     background: #a899b3;
 }
 }
+/* --- Ajustes para o Formulário de CRUD de Produto --- */
+
+/* Estilos para a seção de Gerenciamento de Produtos (CRUD) - MANTIDOS */
+#manageProductsSection {
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-top: 30px;
+    text-align: center;
+}
+
+#manageProductsSection h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 25px;
+}
+
+#manageProductsSection h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #6a4b8a;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* --- MELHORIAS NO FORMULÁRIO DE CRUD DE PRODUTOS --- */
+#productCrudForm {
+    display: flex;
+    flex-direction: column;
+    /* remove align-items: center; aqui para que os itens usem 100% da largura,
+       e o text-align: left dos labels funcione bem */
+    gap: 15px; /* Espaçamento entre os grupos de label/input */
+    max-width: 500px;
+    margin: 0 auto 40px auto;
+    padding: 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    background-color: #fcfcfc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+/* Estilo para cada "grupo" de label e input */
+#productCrudForm div.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Cada grupo ocupa a largura total do formulário */
+}
+
+#productCrudForm label {
+    text-align: left; /* Alinha o texto do label à esquerda */
+    width: 100%; /* Garante que o label ocupe toda a largura disponível */
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 8px; /* Mais espaço entre o label e o input */
+    padding-left: 0; /* Remover padding-left: 5px; se foi adicionado antes */
+    box-sizing: border-box;
+}
+
+#productCrudForm input[type="text"],
+#productCrudForm input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 0; /* Remover margin-bottom: 15px; aqui para usar o gap do form-group */
+}
+
+#productCrudForm input[type="text"]:focus,
+#productCrudForm input[type="number"]:focus {
+    border-color: #6a4b8a;
+    box-shadow: 0 0 0 3px rgba(106, 75, 138, 0.2);
+    outline: none;
+}
+
+/* Contêiner para os botões "Salvar" e "Cancelar" */
+#productCrudForm div.form-buttons {
+    display: flex;
+    justify-content: center; /* Centraliza os botões */
+    gap: 15px; /* Espaço entre os botões */
+    width: 100%; /* Ocupa a largura total para centralizar */
+    margin-top: 20px; /* Mais espaço acima dos botões */
+}
+
+#productCrudForm button {
+    margin-top: 0; /* Remover margin-top herdado do #productCrudForm */
+    width: auto;
+    min-width: 120px;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+#saveProductButton {
+    background: linear-gradient(135deg, #6a4b8a 0%, #89739c 100%);
+    color: white;
+}
+
+#saveProductButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(106, 75, 138, 0.3);
+}
+
+#cancelProductCrudButton {
+    background-color: #e0e0e0;
+    color: white;
+    /* Remover margin-left: 10px; para usar o gap do form-buttons */
+}
+
+#cancelProductCrudButton:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-2px);
+}
+
+/* --- Estilos para os botões de Ações (Editar/Excluir) na Tabela de CRUD (MANTIDOS) --- */
+
+.action-button.small-button {
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 5px;
+    margin: 0 3px;
+    transition: all 0.2s ease;
+    box-shadow: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    vertical-align: middle;
+}
+
+.edit-button {
+    background-color: #a899b3;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #89739c;
+    transform: translateY(-1px);
+}
+
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-1px);
+}
+
+/* Ajustes para a coluna de ações da tabela de CRUD (MANTIDOS) */
+#crudProductsTable th:last-child,
+#crudProductsTable td:last-child {
+    width: 150px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* --- Media Query para Responsividade (MANTIDOS com pequenos ajustes) --- */
+@media (max-width: 600px) {
+    #productCrudForm {
+        padding: 15px;
+        /* gap: 10px; mantido */
+    }
+
+    #productCrudForm input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* Botões do Formulário de CRUD */
+    #productCrudForm button {
+        width: 100%; /* Botões do formulário empilham em telas pequenas */
+        /* margin-left: 0; herdado do form-buttons */
+        margin-top: 5px; /* Espaço entre botões empilhados */
+    }
+    
+    .action-button.small-button {
+        padding: 5px 8px;
+        font-size: 10px;
+        margin: 0 1px;
+    }
+
+    #crudProductsTable th:last-child,
+    #crudProductsTable td:last-child {
+        width: 100px;
+        font-size: 10px; /* Reduz a fonte para caber melhor */
+    }
+}
