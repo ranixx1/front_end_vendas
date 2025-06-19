@@ -19,3 +19,24 @@ body {
     box-sizing: border-box; /* Garante que o padding não adicione largura extra */
 }
 
+/* Container principal (será o wrapper de todo o conteúdo para limitar a largura) */
+.main-container {
+    width: 100%;
+    max-width: 1000px; /* Largura máxima maior para desktop */
+    background-color: #ffffff; /* Fundo branco para o container principal */
+    border-radius: 20px; /* Bordas mais arredondadas */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra mais destacada */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Garante que elementos filhos não transbordem */
+}
+
+/* Header */
+.header {
+    padding: 25px 30px; /* Mais padding para um visual mais "clean" */
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
