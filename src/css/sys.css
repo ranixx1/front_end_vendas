@@ -101,3 +101,15 @@ body {
     transform: scale(0.95);
     background: #dcdcdc;
 }
+
+/* Conteúdo principal (Grid para desktop) */
+.content {
+    padding: 30px; /* Mais padding */
+    background-color: #ffffff;
+    flex: 1; /* Permite que ocupe o espaço disponível */
+    overflow-y: auto; /* Adiciona scroll se o conteúdo for maior que a tela */
+    display: grid; /* Layout em grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colunas adaptativas */
+    gap: 30px; /* Espaçamento entre os itens do grid */
+}
+
