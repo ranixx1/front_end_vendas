@@ -233,3 +233,18 @@ body {
     font-size: 22px; /* Ícones maiores */
 }
 
+/* Footer (Nav-Bar) para Desktop */
+.nav-bar {
+    width: 100%;
+    max-width: 1000px; /* Mesma largura do main-container */
+    background-color: white;
+    padding: 15px 25px; /* Padding ajustado */
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.05); /* Sombra mais suave para o footer */
+    border: 1px solid #89739c; /* Bordinha roxa */
+    border-radius: 15px; /* Bordas arredondadas */
+    margin-top: 30px; /* Espaço do conteúdo acima */
+    margin-bottom: 20px; /* Espaço para a base da página */
+}
