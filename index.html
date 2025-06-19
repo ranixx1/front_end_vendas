@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="/src/css/sys.css">
 </head>
+
 <body>
     <div class="main-container">
         <div class="header">
@@ -27,7 +29,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="content">
             <div class="stock-section chart-section">
                 <div class="chart-title">Vendas Semanais</div>
@@ -98,35 +100,36 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="stock-section action-buttons">
-                <div class="action-button" onclick="alert('Funcionalidade: Registrar Venda')">
+                <div class="action-button" id="registerSaleButton">
                     <i class="fas fa-cash-register"></i>
                     Registrar Venda
                 </div>
-                <div class="action-button" onclick="alert('Funcionalidade: Relatórios')">
+                <div class="action-button" id="reportsButton">
                     <i class="fas fa-chart-line"></i>
                     Relatórios
                 </div>
-                <div class="action-button" onclick="alert('Funcionalidade: Cadastrar Produto')">
+                <div class="action-button" id="createProductButton">
                     <i class="fas fa-box"></i>
                     Cadastrar Produto
                 </div>
-                <div class="action-button" onclick="alert('Funcionalidade: Listar Clientes')">
+                <div class="action-button" id="listClientsButton">
                     <i class="fas fa-users"></i>
                     Listar Clientes
                 </div>
-                <div class="action-button" onclick="alert('Funcionalidade: Gerenciar Estoque')">
+                <div class="action-button" id="manageStockButton">
                     <i class="fas fa-boxes"></i>
                     Gerenciar Estoque
                 </div>
-                 <div class="action-button" onclick="alert('Funcionalidade: Suporte')">
-                    <i class="fas fa-headset"></i>
-                    Suporte
+                <div class="action-button" id="listProductsButton">
+                    <i class="fas fa-boxes"></i>
+                    Listar Produtos
                 </div>
             </div>
+
         </div>
-        
+
         <div class="nav-bar">
             <div class="nav-item active">
                 <i class="fas fa-home"></i>
@@ -148,4 +151,5 @@
     </div>
     <script src="src/js/sys.js"></script>
 </body>
+
 </html>
