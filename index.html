@@ -43,76 +43,148 @@
             </div>
         </div>
 
-            <div class="stock-section action-buttons">
-                <div class="action-button" id="registerSaleButton">
-                    <i class="fas fa-cash-register"></i>
-                    Registrar Venda
-                </div>
-                <div class="action-button" id="reportsButton">
-                    <i class="fas fa-chart-line"></i>
-                    Relatórios
-                </div>
-                <div class="action-button" id="createProductButton">
-                    <i class="fas fa-box"></i>
-                    Cadastrar Produto
-                </div>
-                <div class="action-button" id="listClientsButton">
-                    <i class="fas fa-users"></i>
-                    Listar Clientes
-                </div>
-                <div class="action-button" id="manageStockButton">
-                    <i class="fas fa-boxes"></i>
-                    Gerenciar Estoque
-                </div>
-                <div class="action-button" id="refreshChartsButton">
-                    <i class="fas fa-sync-alt"></i> Atualizar Gráficos
-                </div>
-                <div class="action-button" id="listProductsButton">
-                    <i class="fas fa-boxes"></i>
-                    Listar Produtos
-                </div>
+        <div class="stock-section action-buttons">
+            <div class="action-button" id="registerSaleButton">
+                <i class="fas fa-cash-register"></i>
+                Registrar Venda
+            </div>
+
+            <div class="action-button" id="listSalesButton">
+                <i class="fas fa-receipt"></i>
+                Listar Vendas
+            </div>
+        
+            <div class="action-button" id="listProductsButton">
+                <i class="fas fa-boxes"></i>
+                Listar Produtos
+            </div>
+
+            <div class="action-button" id="createProductButton">
+                <i class="fas fa-box"></i>
+                Cadastrar Produto
+            </div>
+
+            <div class="action-button" id="manageProductsButton">
+                <i class="fas fa-edit"></i> Gerenciar Produtos
+            </div>
+
+            <div class="action-button" id="manageStockButton">
+                <i class="fas fa-boxes"></i>
+                Gerenciar Estoque
             </div>
             
-            <div class="stock-section" id="dataDisplayArea">
-                <h2>Dados da API:</h2>
-                
-                <h3 id="productsTableTitle" style="display: none; margin-top: 20px;">Produtos</h3>
-                <div class="table-container" id="productsTableContainer" style="display: none;">
-                    <table class="data-table" id="productsTable">
+            <div class="action-button" id="listClientsButton">
+                <i class="fas fa-users"></i>
+                Listar Clientes
+            </div>
+        
+            <div class="action-button" id="reportsButton">
+                <i class="fas fa-chart-line"></i>
+                Relatórios
+            </div>
+
+            <div class="action-button" id="refreshChartsButton">
+                <i class="fas fa-sync-alt"></i>
+                Atualizar Gráficos
+            </div>
+        </div>
+            
+        <div class="stock-section" id="dataDisplayArea">
+            <h2>Dados da API:</h2>
+            
+            <h3 id="productsTableTitle" style="display: none; margin-top: 20px;">Produtos</h3>
+            <div class="table-container" id="productsTableContainer" style="display: none;">
+                <table class="data-table" id="productsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Estoque</th>
+                            <th>Preço Venda</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody">
+                        </tbody>
+                </table>
+            </div>
+            
+            <h3 id="clientsTableTitle" style="display: none; margin-top: 20px;">Clientes</h3>
+            <div class="table-container" id="clientsTableContainer" style="display: none;">
+                <table class="data-table" id="clientsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Documento</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                        </tr>
+                    </thead>
+                    <tbody id="clientsTableBody">
+                        </tbody>
+                </table>
+            </div>
+
+            <h3 id="salesTableTitle" style="display: none; margin-top: 20px;">Vendas</h3>
+            <div class="table-container" id="salesTableContainer" style="display: none;">
+                <table class="data-table" id="salesTable">
+                    <thead>
+                        <tr>
+                            <th>ID Venda</th>
+                            <th>Cliente</th>
+                            <th>Data</th>
+                            <th>Valor Total</th>
+                            <th>Itens</th> </tr>
+                    </thead>
+                    <tbody id="salesTableBody">
+                        </tbody>
+                </table>
+            </div>
+            <div class="stock-section" id="manageProductsSection" style="display: none;">
+                <h3>Gerenciar Produtos</h3>
+
+                <h4>Adicionar/Editar Produto</h4>
+                <form id="productCrudForm">
+                    <input type="hidden" id="productId"> <label for="productCrudName">Nome:</label>
+                    <input type="text" id="productCrudName" required><br><br>
+
+                    <label for="productCrudDescription">Descrição:</label>
+                    <input type="text" id="productCrudDescription" required><br><br>
+
+                    <label for="productCrudStock">Quantidade em Estoque:</label>
+                    <input type="number" id="productCrudStock" required><br><br>
+
+                    <label for="productCrudCost">Preço de Custo:</label>
+                    <input type="number" step="0.01" id="productCrudCost" required><br><br>
+
+                    <label for="productCrudSalePrice">Preço de Venda:</label>
+                    <input type="number" step="0.01" id="productCrudSalePrice" required><br><br>
+
+                    <button type="submit" class="action-button small-button" id="saveProductButton">Salvar</button>
+                    <button type="button" class="action-button small-button" id="cancelProductCrudButton">Cancelar</button>
+                </form>
+
+                <h4 style="margin-top: 30px;">Lista de Produtos Cadastrados</h4>
+                <div class="table-container">
+                    <table class="data-table" id="crudProductsTable">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Nome</th>
                                 <th>Estoque</th>
                                 <th>Preço Venda</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
-                        <tbody id="productsTableBody">
+                        <tbody id="crudProductsTableBody">
                             </tbody>
                     </table>
                 </div>
-                
-                <h3 id="clientsTableTitle" style="display: none; margin-top: 20px;">Clientes</h3>
-                <div class="table-container" id="clientsTableContainer" style="display: none;">
-                    <table class="data-table" id="clientsTable">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nome</th>
-                                <th>Documento</th>
-                                <th>Email</th>
-                                <th>Telefone</th>
-                            </tr>
-                        </thead>
-                        <tbody id="clientsTableBody">
-                            </tbody>
-                    </table>
-                </div>
-
-                <p id="initialMessage" style="text-align: center; color: #888; padding: 20px;">
-                    Clique em "Listar Produtos" ou "Listar Clientes" para ver os dados aqui.
-                </p>
             </div>
+            <p id="initialMessage" style="text-align: center; color: #888; padding: 20px;">
+                Clique em "Listar Produtos" ou "Listar Clientes" ou "Listar Vendas" para ver os dados aqui.
+            </p>
+        </div>
 
         </div>
 
