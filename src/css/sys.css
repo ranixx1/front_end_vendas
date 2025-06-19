@@ -195,3 +195,41 @@ body {
 .y-axis span {
     transform: translateY(50%);
 }
+
+/* Botões de Ação */
+.action-buttons {
+    grid-column: 1 / -1; /* Ocupa a largura total abaixo dos gráficos */
+    display: grid; /* Grid para os botões */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas adaptativas para botões */
+    gap: 20px; /* Espaçamento entre os botões */
+}
+
+.action-button {
+    padding: 22px 30px; /* Padding maior para desktop */
+    background: linear-gradient(135deg, #89739c 0%, #6a4b8a 100%);
+    border-radius: 30px;
+    color: white;
+    font-size: 18px; /* Fonte maior */
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(137, 115, 156, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.action-button:hover {
+    transform: translateY(-3px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 8px 20px rgba(137, 115, 156, 0.4);
+}
+.action-button:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 12px rgba(137, 115, 156, 0.5);
+}
+.action-button i {
+    font-size: 22px; /* Ícones maiores */
+}
+
