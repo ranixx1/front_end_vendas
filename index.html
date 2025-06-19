@@ -2,73 +2,71 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sys- Sistema de Estoque</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Sys- Sistema de Estoque</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="/src/css/sys.css">
 </head>
 <body>
-    <div>
-        <div>
-            <div>
-                <div>ADM</div>
-                <div>
+    <div class="main-container">
+        <div class="header">
+            <div class="user-info">
+                <div class="profile">ADM</div> <div class="greeting">
                     <h1>Olá, Admin!</h1>
                     <p>Dashboard de Estoque</p>
                 </div>
             </div>
-            <div>
-                <div>
+            <div class="actions">
+                <div class="action-btn">
                     <i class="fas fa-search"></i>
                 </div>
-                <div>
+                <div class="action-btn">
                     <i class="fas fa-bell"></i>
                 </div>
             </div>
         </div>
         
-        <div>
-            <div>
-                <div>Vendas Semanais</div>
-                <div>
-                    <div>
+        <div class="content">
+            <div class="stock-section chart-section">
+                <div class="chart-title">Vendas Semanais</div>
+                <div class="chart-container">
+                    <div class="y-axis">
                         <span>300</span>
                         <span>200</span>
                         <span>100</span>
                         <span>0</span>
                     </div>
-                    <div>
-                        <div style="height: 60%;"></div>
-                        <div>Seg</div>
+                    <div class="bar-wrapper">
+                        <div class="chart-bar" style="height: 60%;" data-value="180"></div>
+                        <div class="bar-label">Seg</div>
                     </div>
-                    <div>
-                        <div style="height: 80%;"></div>
-                        <div>Ter</div>
+                    <div class="bar-wrapper">
+                        <div class="chart-bar" style="height: 80%;" data-value="240"></div>
+                        <div class="bar-label">Ter</div>
                     </div>
-                    <div>
-                        <div style="height: 50%;"></div>
-                        <div>Qua</div>
+                    <div class="bar-wrapper">
+                        <div class="chart-bar" style="height: 50%;" data-value="150"></div>
+                        <div class="bar-label">Qua</div>
                     </div>
-                    <div>
-                        <div style="height: 90%;"></div>
-                        <div>Qui</div>
+                    <div class="bar-wrapper">
+                        <div class="chart-bar" style="height: 90%;" data-value="270"></div>
+                        <div class="bar-label">Qui</div>
                     </div>
-                    <div>
-                        <div style="height: 70%;"></div>
-                        <div>Sex</div>
+                    <div class="bar-wrapper">
+                        <div class="chart-bar" style="height: 70%;" data-value="210"></div>
+                        <div class="bar-label">Sex</div>
                     </div>
-                    <div>
-                        <div style="height: 40%;"></div>
-                        <div>Sáb</div>
+                    <div class="bar-wrapper">
+                        <div class="chart-bar" style="height: 40%;" data-value="120"></div>
+                        <div class="bar-label">Sáb</div>
                     </div>
                 </div>
             </div>
 
-            <div>
-                <div>Estoque por Categoria</div>
-                <div>
-                    <div>
+            <div class="stock-section chart-section">
+                <div class="chart-title">Estoque por Categoria</div>
+                <div class="chart-container">
+                    <div class="y-axis">
                         <span>500</span>
                         <span>400</span>
                         <span>300</span>
@@ -76,71 +74,71 @@
                         <span>100</span>
                         <span>0</span>
                     </div>
-                    <div>
-                        <div style="height: 70%; background-color: #9c8bb3;"></div>
-                        <div>Eletrônicos</div>
+                    <div class="bar-wrapper">
+                        <div class="chart-bar" style="height: 70%; background-color: #9c8bb3;" data-value="350"></div>
+                        <div class="bar-label">Eletrônicos</div>
                     </div>
-                    <div>
-                        <div style="height: 50%; background-color: #7b6ba3;"></div>
-                        <div>Roupas</div>
+                    <div class="bar-wrapper">
+                        <div class="chart-bar" style="height: 50%; background-color: #7b6ba3;" data-value="250"></div>
+                        <div class="bar-label">Roupas</div>
                     </div>
-                    <div>
-                        <div style="height: 90%; background-color: #6a4b8a;"></div>
-                        <div>Alimentos</div>
+                    <div class="bar-wrapper">
+                        <div class="chart-bar" style="height: 90%; background-color: #6a4b8a;" data-value="450"></div>
+                        <div class="bar-label">Alimentos</div>
                     </div>
-                    <div>
-                        <div style="height: 40%; background-color: #89739c;"></div>
-                        <div>Limpeza</div>
+                    <div class="bar-wrapper">
+                        <div class="chart-bar" style="height: 40%; background-color: #89739c;" data-value="200"></div>
+                        <div class="bar-label">Limpeza</div>
                     </div>
-                    <div>
-                        <div style="height: 65%; background-color: #a899b3;"></div>
-                        <div>Decoração</div>
+                    <div class="bar-wrapper">
+                        <div class="chart-bar" style="height: 65%; background-color: #a899b3;" data-value="325"></div>
+                        <div class="bar-label">Decoração</div>
                     </div>
                 </div>
             </div>
             
-            <div>
-                <div onclick="alert('Funcionalidade: Registrar Venda')">
+            <div class="stock-section action-buttons">
+                <div class="action-button" onclick="alert('Funcionalidade: Registrar Venda')">
                     <i class="fas fa-cash-register"></i>
                     Registrar Venda
                 </div>
-                <div onclick="alert('Funcionalidade: Relatórios')">
+                <div class="action-button" onclick="alert('Funcionalidade: Relatórios')">
                     <i class="fas fa-chart-line"></i>
                     Relatórios
                 </div>
-                <div onclick="alert('Funcionalidade: Cadastrar Produto')">
+                <div class="action-button" onclick="alert('Funcionalidade: Cadastrar Produto')">
                     <i class="fas fa-box"></i>
                     Cadastrar Produto
                 </div>
-                <div onclick="alert('Funcionalidade: Listar Clientes')">
+                <div class="action-button" onclick="alert('Funcionalidade: Listar Clientes')">
                     <i class="fas fa-users"></i>
                     Listar Clientes
                 </div>
-                <div onclick="alert('Funcionalidade: Gerenciar Estoque')">
+                <div class="action-button" onclick="alert('Funcionalidade: Gerenciar Estoque')">
                     <i class="fas fa-boxes"></i>
                     Gerenciar Estoque
                 </div>
-                 <div onclick="alert('Funcionalidade: Suporte')">
+                 <div class="action-button" onclick="alert('Funcionalidade: Suporte')">
                     <i class="fas fa-headset"></i>
                     Suporte
                 </div>
             </div>
         </div>
         
-        <div>
-            <div>
+        <div class="nav-bar">
+            <div class="nav-item active">
                 <i class="fas fa-home"></i>
                 <span>Início</span>
             </div>
-            <div>
+            <div class="nav-item">
                 <i class="fas fa-chart-bar"></i>
                 <span>Gráficos</span>
             </div>
-            <div>
+            <div class="nav-item">
                 <i class="fas fa-boxes"></i>
                 <span>Estoque</span>
             </div>
-            <div>
+            <div class="nav-item">
                 <i class="far fa-user"></i>
                 <span>Perfil</span>
             </div>
