@@ -58,7 +58,7 @@ Para rodar este projeto front-end localmente, siga os passos abaixo:
 
 2.  **Clone o Repositório:**
     ```bash
-    git clone [https://github.com/ranixx1/front_end_vendas.git](https://github.com/ranixx1/front_end_vendas.git)
+    git clone [https://github.com/ranixx1/front_end_vendas.git]
     cd front_end_vendas
     ```
 
