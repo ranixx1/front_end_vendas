@@ -1,39 +1,37 @@
-
 /* Estilos base para o layout desktop */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-    -webkit-tap-highlight-color: transparent; /* Mantido para uma boa experiência em touchscreens maiores */
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    background-color: #f8f9fa; /* Fundo claro para o corpo */
-    min-height: 100vh; /* Garante que o body ocupe a altura mínima da viewport */
-    display: flex;
-    flex-direction: column; /* Colunas para header, content e footer */
-    align-items: center; /* Centraliza o conteúdo principal horizontalmente */
-    color: #333;
-    padding: 20px; /* Espaçamento ao redor de todo o container principal */
-    box-sizing: border-box; /* Garante que o padding não adicione largura extra */
-}
-
-/* Container principal (será o wrapper de todo o conteúdo para limitar a largura) */
-.main-container {
-    width: 100%;
-    max-width: 1000px; /* Largura máxima maior para desktop */
-    background-color: #ffffff; /* Fundo branco para o container principal */
-    border-radius: 20px; /* Bordas mais arredondadas */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra mais destacada */
+    background-color: #f8f9fa;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Garante que elementos filhos não transbordem */
+    align-items: center;
+    color: #333;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 /* Header */
 .header {
-    padding: 25px 30px; /* Mais padding para um visual mais "clean" */
+    padding: 25px 30px;
     background-color: white;
     display: flex;
     justify-content: space-between;
@@ -44,11 +42,11 @@ body {
 .user-info {
     display: flex;
     align-items: center;
-    gap: 15px; /* Mais espaçamento */
+    gap: 15px;
 }
 
 .profile {
-    width: 50px; /* Perfil um pouco maior */
+    width: 50px;
     height: 50px;
     border-radius: 50%;
     background: linear-gradient(135deg, #6a4b8a 0%, #89739c 100%);
@@ -62,7 +60,7 @@ body {
 }
 
 .greeting h1 {
-    font-size: 24px; /* Título maior */
+    font-size: 24px;
     font-weight: 700;
     color: #2c2c2c;
     line-height: 1.2;
@@ -76,26 +74,26 @@ body {
 
 .actions {
     display: flex;
-    gap: 20px; /* Mais espaçamento entre os ícones */
+    gap: 20px;
 }
 
 .action-btn {
-    width: 45px; /* Botões maiores */
+    width: 45px;
     height: 45px;
-    border-radius: 15px; /* Bordas mais arredondadas */
+    border-radius: 15px;
     background: #f5f5f7;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #6a4b8a;
-    font-size: 20px; /* Ícones maiores */
+    font-size: 20px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .action-btn:hover {
     background: #eaeaea;
-    transform: translateY(-2px); /* Pequeno efeito de elevação */
+    transform: translateY(-2px);
 }
 .action-btn:active {
     transform: scale(0.95);
@@ -106,11 +104,11 @@ body {
 .content {
     padding: 30px; 
     background-color: #ffffff;
-    flex: 1; /* Permite que ocupe o espaço disponível */
-    overflow-y: auto; /* Adiciona scroll se o conteúdo for maior que a tela */
-    display: grid; /* Layout em grid */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colunas adaptativas */
-    gap: 30px; /* Espaçamento entre os itens do grid */
+    flex: 1;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 /* Seções de Estoque (Gráficos e Botões) */
@@ -118,7 +116,7 @@ body {
     background: #f8f9fa;
     border-radius: 20px;
     padding: 25px; 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -135,77 +133,30 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    height: 200px; /* Altura maior para gráficos desktop */
+    height: 200px;
     padding-bottom: 15px;
     border-bottom: 1px solid #e0e0e0;
     position: relative;
 }
 
-.chart-bar {
-    width: 35px; /* Barras mais largas */
-    background-color: #a899b3;
-    border-radius: 8px 8px 0 0; /* Bordas mais arredondadas nas barras */
-    position: relative;
-    transition: height 0.5s ease-out;
-    cursor: pointer;
-}
-.chart-bar:hover {
-    opacity: 0.9;
-    transform: translateY(-5px); /* Efeito ao passar o mouse */
-}
-.chart-bar:nth-child(even) {
-    background-color: #89739c;
+/* Gráficos Chart.js */
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100%;
 }
 
-.chart-bar::before {
-    content: attr(data-value);
-    position: absolute;
-    top: -28px; /* Ajusta posição do valor */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 14px; 
-    color: #6a4b8a;
-    font-weight: 600;
-}
-
-.bar-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 8px; /* Mais espaçamento entre as barras */
-}
-.bar-label {
-    font-size: 14px; 
-    color: #666;
-    margin-top: 8px; 
-}
-.y-axis {
-    position: absolute;
-    left: -5px; /* Ajuste para não sair do padding */
-    top: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
-    padding: 0 8px; 
-    font-size: 13px;
-    color: #888;
-    border-right: 1px solid #e0e0e0;
-}
-.y-axis span {
-    transform: translateY(50%);
-}
 
 /* Botões de Ação */
 .action-buttons {
-    grid-column: 1 / -1; /* Ocupa a largura total abaixo dos gráficos */
-    display: grid; /* Grid para os botões */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas adaptativas para botões */
-    gap: 20px; /* Espaçamento entre os botões */
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 .action-button {
-    padding: 22px 30px; /* Padding maior para desktop */
+    padding: 22px 30px;
     background: linear-gradient(135deg, #89739c 0%, #6a4b8a 100%);
     border-radius: 30px;
     color: white;
@@ -219,10 +170,11 @@ body {
     align-items: center;
     justify-content: center;
     gap: 12px;
+    border: none; /* Adicionado para garantir */
 }
 
 .action-button:hover {
-    transform: translateY(-3px); /* Efeito de elevação ao passar o mouse */
+    transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(137, 115, 156, 0.4);
 }
 .action-button:active {
@@ -230,23 +182,23 @@ body {
     box-shadow: 0 4px 12px rgba(137, 115, 156, 0.5);
 }
 .action-button i {
-    font-size: 22px; /* Ícones maiores */
+    font-size: 22px;
 }
 
 /* Footer (Nav-Bar) para Desktop */
 .nav-bar {
     width: 100%;
-    max-width: 1000px; /* Mesma largura do main-container */
+    max-width: 1000px;
     background-color: white;
-    padding: 15px 25px; /* Padding ajustado */
+    padding: 15px 25px;
     border-top: 1px solid #f0f0f0;
     display: flex;
     justify-content: space-around;
-    box-shadow: 0 -5px 15px rgba(0,0,0,0.05); /* Sombra mais suave para o footer */
-    border: 1px solid #89739c; /* Bordinha roxa */
-    border-radius: 15px; /* Bordas arredondadas */
-    margin-top: 30px; /* Espaço do conteúdo acima */
-    margin-bottom: 20px; /* Espaço para a base da página */
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #89739c;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .nav-item {
@@ -254,11 +206,11 @@ body {
     flex-direction: column;
     align-items: center;
     color: #999;
-    font-size: 13px; /* Fonte um pouco maior */
+    font-size: 13px;
     transition: all 0.3s ease;
     cursor: pointer;
-    padding: 10px 20px; /* Padding ajustado */
-    border-radius: 18px; /* Bordas mais arredondadas */
+    padding: 10px 20px;
+    border-radius: 18px;
 }
 
 .nav-item.active {
@@ -268,12 +220,12 @@ body {
 }
 .nav-item:hover {
     color: #89739c;
-    transform: translateY(-2px); /* Efeito ao passar o mouse */
+    transform: translateY(-2px);
 }
 
 .nav-item i {
-    font-size: 24px; /* Ícone maior */
-    margin-bottom: 5px; /* Mais espaço */
+    font-size: 24px;
+    margin-bottom: 5px;
 }
 
 .nav-item span {
@@ -282,7 +234,7 @@ body {
 
 /* Scroll personalizado */
 .content::-webkit-scrollbar {
-    width: 8px; /* Largura maior para desktop */
+    width: 8px;
 }
 
 .content::-webkit-scrollbar-track {
@@ -291,12 +243,12 @@ body {
 }
 
 .content::-webkit-scrollbar-thumb {
-    background: #89739c; /* Roxo mais escuro para o "polegar" do scroll */
+    background: #89739c;
     border-radius: 10px;
 }
 
 .content::-webkit-scrollbar-thumb:hover {
-    background: #6a4b8a; /* Roxo ainda mais escuro ao passar o mouse */
+    background: #6a4b8a;
 }
 
 /* Scrollbar para o container da tabela */
@@ -310,43 +262,42 @@ body {
 }
 
 .table-container::-webkit-scrollbar-thumb {
-    background: #89739c; /* Roxo mais escuro para o "polegar" do scroll */
+    background: #89739c;
     border-radius: 10px;
 }
 
 .table-container::-webkit-scrollbar-thumb:hover {
-    background: #6a4b8a; /* Roxo ainda mais escuro ao passar o mouse */
+    background: #6a4b8a;
 }
 
 
 /* --- Media Queries para Mobile (max-width: 768px) --- */
-/* Revertendo estilos para mobile quando a tela é pequena */
 @media (max-width: 768px) {
     body {
         height: 100vh;
         overflow: hidden;
-        padding: 0; /* Remover padding do body no mobile */
-        align-items: flex-start; /* Alinha o conteúdo ao topo no mobile */
+        padding: 0;
+        align-items: flex-start;
     }
 
     .main-container {
         width: 100%;
-        max-width: none; /* Remove max-width para ocupar toda a largura */
-        height: calc(100vh - 50px); /* Altura total menos a barra de status */
-        border-radius: 0; /* Sem bordas arredondadas no mobile */
-        box-shadow: none; /* Sem sombra no mobile */
+        max-width: none;
+        height: calc(100vh - 50px);
+        border-radius: 0;
+        box-shadow: none;
         overflow-y: auto;
         overflow-x: hidden;
     }
 
     /* Barra de status do dispositivo (Visível apenas em Mobile) */
     .status-bar {
-        display: flex; /* Torna visível no mobile */
+        display: flex;
     }
 
     .header {
-        padding: 16px 20px 10px; /* Padding original do mobile */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Sombra para mobile */
+        padding: 16px 20px 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
     .user-info {
         gap: 12px;
@@ -372,16 +323,16 @@ body {
     }
 
     .content {
-        padding: 0 20px; /* Padding original do mobile */
-        padding-bottom: 80px; /* Espaço para nav-bar fixa no mobile */
-        grid-template-columns: 1fr; /* Uma coluna para mobile */
-        gap: 25px; /* Espaçamento original */
-        overflow-y: auto; /* Mantém scroll */
+        padding: 0 20px;
+        padding-bottom: 80px;
+        grid-template-columns: 1fr;
+        gap: 25px;
+        overflow-y: auto;
     }
     
     .stock-section {
-        padding: 20px; /* Padding original */
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* Sombra original */
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
     }
     .chart-section .chart-title {
         font-size: 17px;
@@ -389,24 +340,11 @@ body {
     .chart-container {
         height: 150px;
     }
-    .chart-bar {
-        width: 25px;
-        border-radius: 5px 5px 0 0;
-    }
-    .chart-bar::before {
-        font-size: 12px;
-    }
-    .bar-label {
-        font-size: 12px;
-    }
-    .y-axis {
-        left: -5px;
-        font-size: 11px;
-    }
+    /* Removido os estilos de barra customizados, usando apenas Chart.js */
 
     .action-buttons {
-        grid-template-columns: 1fr; /* Uma coluna para mobile */
-        gap: 15px; /* Espaçamento original */
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
     .action-button {
         padding: 18px 25px;
@@ -419,7 +357,7 @@ body {
 
     /* Nav-bar para Mobile (fixo na parte inferior) */
     .nav-bar {
-        position: fixed; /* Fixo no mobile */
+        position: fixed;
         bottom: 0;
         width: 100%;
         max-width: none; 
@@ -429,6 +367,7 @@ body {
         margin-top: 0; 
         margin-bottom: 0; 
         box-shadow: 0 -2px 5px rgba(0,0,0,0.05); 
+        padding: 8px 12px; /* Ajustado para mobile */
     }
 
     .nav-item {
@@ -440,13 +379,14 @@ body {
         margin-bottom: 3px;
     }
 }
+
 /* Estilos para a área de exibição de dados da API */
 #dataDisplayArea h2 {
     font-size: 20px;
     font-weight: 700;
     color: #2c2c2c;
     margin-bottom: 15px;
-    text-align: center; /* Já está centralizado */
+    text-align: center;
 }
 
 #dataDisplayArea h3 {
@@ -454,7 +394,7 @@ body {
     font-weight: 600;
     color: #6a4b8a;
     margin-bottom: 10px;
-    text-align: center; /* Já está centralizado */
+    text-align: center;
 }
 
 /* Estilos para o container da tabela (para rolagem e espaçamento) */
@@ -465,32 +405,61 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
-    /* Adicione estas linhas para centralizar o contêiner da tabela como um bloco */
     margin-left: auto;
     margin-right: auto;
-    width: fit-content; /* Permite que o container se ajuste ao conteúdo ou max-width */
-    max-width: 100%; /* Garante que não exceda a largura do pai */
+    width: fit-content;
+    max-width: 100%;
 }
 
 /* Estilos para a tabela em si */
 .data-table {
-    width: 100%; /* Mantém a largura de 100% dentro do table-container */
+    width: 100%;
     border-collapse: collapse;
-    margin-bottom: 15px;
+    margin-bottom: 0; /* Ajustado para 0, o container já tem margin-bottom */
     background-color: #ffffff;
+    /* Adicionado para rolagem horizontal em telas menores */
+    display: block; /* Garante que a tabela se comporta como um bloco para overflow-x */
+    overflow-x: auto; /* Permite rolagem horizontal */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    -webkit-overflow-scrolling: touch; /* Melhor rolagem em iOS */
 }
+
+.data-table thead, .data-table tbody, .data-table th, .data-table td, .data-table tr {
+    display: block; /* Cada elemento se comporta como um bloco em mobile */
+}
+
+/* Remover border-collapse e ajustar display para mobile */
+@media (max-width: 768px) {
+    .data-table {
+        border-collapse: separate; /* Volta ao normal para permitir o overflow-x */
+        display: table; /* Volta ao display de tabela */
+        white-space: normal; /* Volta ao normal para permitir que o texto quebre */
+    }
+
+    .table-container {
+        overflow-x: auto; /* Mantém a rolagem horizontal para o container */
+        width: 100%; /* Garante que ocupe a largura total */
+    }
+
+    .data-table th, .data-table td {
+        min-width: 100px; /* Garante uma largura mínima para as células */
+        padding: 10px;
+        font-size: 13px;
+        white-space: normal; /* Permite que o texto quebre normalmente dentro das células */
+    }
+}
+
 
 .data-table thead tr {
     background-color: #f0f0f0;
     color: #333;
-    text-align: left; /* Mantenha 'left' para o texto dentro do cabeçalho */
+    text-align: left;
 }
 
 .data-table th,
 .data-table td {
     padding: 12px 15px;
     border-bottom: 1px solid #e8e8e8;
-    /* Adicione estas linhas para centralizar o texto dentro das células */
     text-align: center;
 }
 
@@ -498,29 +467,10 @@ body {
     font-weight: 600;
     font-size: 14px;
     text-transform: uppercase;
-
-/* Scrollbar para o container da tabela */
-.table-container::-webkit-scrollbar {
-    width: 8px;
 }
 
-.table-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-.table-container::-webkit-scrollbar-thumb {
-    background: #c5b5d1;
-    border-radius: 10px;
-}
-
-.table-container::-webkit-scrollbar-thumb:hover {
-    background: #a899b3;
-}
-}
 /* --- Ajustes para o Formulário de CRUD de Produto --- */
 
-/* Estilos para a seção de Gerenciamento de Produtos (CRUD) - MANTIDOS */
 #manageProductsSection {
     padding: 30px;
     background: #ffffff;
@@ -545,11 +495,10 @@ body {
     text-align: center;
 }
 
-/* --- MELHORIAS NO FORMULÁRIO DE CRUD DE PRODUTOS --- */
 #productCrudForm {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espaçamento entre os grupos de label/input */
+    gap: 15px;
     max-width: 500px;
     margin: 0 auto 40px auto;
     padding: 25px;
@@ -559,19 +508,18 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
-/* Estilo para cada "grupo" de label e input */
 #productCrudForm div.form-group {
     display: flex;
     flex-direction: column;
-    width: 100%; /* Cada grupo ocupa a largura total do formulário */
+    width: 100%;
 }
 
 #productCrudForm label {
-    text-align: left; /* Alinha o texto do label à esquerda */
-    width: 100%; /* Garante que o label ocupe toda a largura disponível */
+    text-align: left;
+    width: 100%;
     font-weight: 500;
     color: #444;
-    margin-bottom: 8px; /* Mais espaço entre o label e o input */
+    margin-bottom: 8px;
     padding-left: 0; 
     box-sizing: border-box;
 }
@@ -596,17 +544,16 @@ body {
     outline: none;
 }
 
-/* Contêiner para os botões "Salvar" e "Cancelar" */
 #productCrudForm div.form-buttons {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Espaço entre os botões */
-    width: 100%; /* Ocupa a largura total para centralizar */
-    margin-top: 20px; /* Mais espaço acima dos botões */
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
 }
 
 #productCrudForm button {
-    margin-top: 0; /* Remover margin-top herdado do #productCrudForm */
+    margin-top: 0;
     width: auto;
     min-width: 120px;
     padding: 12px 25px;
@@ -635,8 +582,7 @@ body {
 
 #cancelProductCrudButton {
     background-color: #e0e0e0;
-    color: white;
-    /* Remover margin-left: 10px; para usar o gap do form-buttons */
+    color: #333;
 }
 
 #cancelProductCrudButton:hover {
@@ -644,7 +590,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* --- Estilos para os botões de Ações (Editar/Excluir) na Tabela de CRUD (MANTIDOS) --- */
+/* --- Estilos para os botões de Ações (Editar/Excluir) na Tabela de CRUD --- */
 
 .action-button.small-button {
     padding: 6px 12px;
@@ -681,7 +627,7 @@ body {
     transform: translateY(-1px);
 }
 
-/* Ajustes para a coluna de ações da tabela de CRUD (MANTIDOS) */
+/* Ajustes para a coluna de ações da tabela de CRUD */
 #crudProductsTable th:last-child,
 #crudProductsTable td:last-child {
     width: 150px;
@@ -689,37 +635,6 @@ body {
     text-align: center;
 }
 
-/* --- Media Query para Responsividade (MANTIDOS com pequenos ajustes) --- */
-@media (max-width: 600px) {
-    #productCrudForm {
-        padding: 15px;
-        /* gap: 10px; mantido */
-    }
-
-    #productCrudForm input {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    /* Botões do Formulário de CRUD */
-    #productCrudForm button {
-        width: 100%; /* Botões do formulário empilham em telas pequenas */
-        /* margin-left: 0; herdado do form-buttons */
-        margin-top: 5px; /* Espaço entre botões empilhados */
-    }
-    
-    .action-button.small-button {
-        padding: 5px 8px;
-        font-size: 10px;
-        margin: 0 1px;
-    }
-
-    #crudProductsTable th:last-child,
-    #crudProductsTable td:last-child {
-        width: 100px;
-        font-size: 10px; /* Reduz a fonte para caber melhor */
-    }
-}
 /* Estilos para a Seção de Registro de Venda */
 #registerSaleSection {
     padding: 30px;
@@ -787,11 +702,13 @@ body {
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
 }
 
 .sale-item-row select,
 .sale-item-row input {
-    flex: 1; /* Permite que ocupem o espaço disponível */
+    flex: 1;
+    min-width: 120px; /* Garante que os campos não fiquem muito pequenos */
 }
 
 .sale-item-row .delete-item-button {
@@ -802,6 +719,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    border: none;
+    box-shadow: none;
 }
 
 .sale-item-row .delete-item-button:hover {
@@ -815,6 +734,8 @@ body {
     padding: 10px 20px;
     border-radius: 25px;
     font-size: 16px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #addSaleItemButton:hover {
@@ -833,12 +754,127 @@ body {
 
 #cancelSaleRegistrationButton {
     background-color: #e0e0e0;
-    color: #333;
+    color: white
 }
 
+/* Estilos para a nova seção de Gerenciar Estoque */
+#stockManagementSection {
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-top: 30px;
+    text-align: center;
+}
+
+#stockManagementSection h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 25px;
+}
+
+#stockManagementSection h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #6a4b8a;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#stockManagementTable input[type="number"] {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.update-stock-button {
+    background-color: #6a4b8a;
+    color: white;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(106, 75, 138, 0.2);
+    border: none;
+}
+
+.update-stock-button:hover {
+    background-color: #89739c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(106, 75, 138, 0.3);
+}
+
+.update-stock-button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(106, 75, 138, 0.4);
+}
+
+/* Media Query para telas menores que 600px */
 @media (max-width: 600px) {
+    #productCrudForm {
+        padding: 15px;
+    }
+
+    #productCrudForm input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #productCrudForm button {
+        width: 100%;
+        margin-top: 5px;
+    }
+    
+    .action-button.small-button {
+        padding: 5px 8px;
+        font-size: 10px;
+        margin: 0 1px;
+    }
+
+    #crudProductsTable th:last-child,
+    #crudProductsTable td:last-child {
+        width: 100px;
+        font-size: 10px;
+    }
+
+    /* Ajustes específicos para o formulário de registro de venda no mobile */
+    #saleRegistrationForm {
+        padding: 15px;
+        gap: 10px;
+    }
+    #saleRegistrationForm select,
+    #saleRegistrationForm input[type="number"] {
+        padding: 8px;
+        font-size: 14px;
+    }
     .sale-item-row {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: column; /* Empilha os itens */
+        align-items: stretch; /* Estica para ocupar a largura total */
+        gap: 8px; /* Reduz o espaçamento entre os itens empilhados */
+    }
+    .sale-item-row select,
+    .sale-item-row input {
+        width: 100%; /* Ocupa a largura total quando empilhado */
+        min-width: unset; /* Remove o min-width para flexibilidade */
+    }
+    .sale-item-row .delete-item-button {
+        width: 100%; /* Botão de remover ocupa a largura total */
+        margin-top: 5px; /* Espaço entre o input e o botão */
+    }
+
+    #addSaleItemButton,
+    #submitSaleButton,
+    #cancelSaleRegistrationButton {
+        width: 100%; /* Botões de ação no formulário de venda ocupam a largura total */
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 10px;
     }
 }
+
