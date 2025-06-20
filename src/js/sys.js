@@ -7,15 +7,16 @@ let stockByProductChartInstance;
 // --- Funções de interação com o Back-end ---
 
 // Função auxiliar para controlar a visibilidade das tabelas e mensagens
-// AGORA COM TODOS OS 4 PARÂMETROS
-function toggleTableVisibility(productsVisible, clientsVisible, salesVisible, manageProductsVisible) {
+// AGORA COM TODOS OS 5 PARÂMETROS
+function toggleTableVisibility(productsVisible, clientsVisible, salesVisible, manageProductsVisible, registerSaleVisible) { // Adicionado registerSaleVisible
     const productsTableTitle = document.getElementById('productsTableTitle');
     const productsTableContainer = document.getElementById('productsTableContainer');
     const clientsTableTitle = document.getElementById('clientsTableTitle');
     const clientsTableContainer = document.getElementById('clientsTableContainer');
     const salesTableTitle = document.getElementById('salesTableTitle');
     const salesTableContainer = document.getElementById('salesTableContainer');
-    const manageProductsSection = document.getElementById('manageProductsSection'); // Nova referência
+    const manageProductsSection = document.getElementById('manageProductsSection');
+    const registerSaleSection = document.getElementById('registerSaleSection'); // Nova referência
 
     const initialMessage = document.getElementById('initialMessage');
 
@@ -27,20 +28,20 @@ function toggleTableVisibility(productsVisible, clientsVisible, salesVisible, ma
     if (salesTableTitle) salesTableTitle.style.display = salesVisible ? 'block' : 'none';
     if (salesTableContainer) salesTableContainer.style.display = salesVisible ? 'block' : 'none';
 
-    // NOVA DEFINIÇÃO DE DISPLAY PARA A SEÇÃO DE GERENCIAMENTO DE PRODUTOS
     if (manageProductsSection) manageProductsSection.style.display = manageProductsVisible ? 'block' : 'none';
+    if (registerSaleSection) registerSaleSection.style.display = registerSaleVisible ? 'block' : 'none'; // Controla a visibilidade do formulário de venda
 
     if (initialMessage) {
         // Ajusta a condição para incluir todas as seções
-        initialMessage.style.display = (!productsVisible && !clientsVisible && !salesVisible && !manageProductsVisible) ? 'block' : 'none';
+        initialMessage.style.display = (!productsVisible && !clientsVisible && !salesVisible && !manageProductsVisible && !registerSaleVisible) ? 'block' : 'none';
     }
 }
 
 // Função para buscar produtos do seu back-end
 async function fetchProducts() {
     try {
-        // CHAMADA ATUALIZADA: Adicionado o quarto 'false'
-        toggleTableVisibility(false, false, false, false); // Oculta tudo antes de carregar
+        // CHAMADA ATUALIZADA: Adicionado o quinto 'false'
+        toggleTableVisibility(false, false, false, false, false); // Oculta tudo antes de carregar
         const productsTableBody = document.getElementById('productsTableBody');
         if (productsTableBody) productsTableBody.innerHTML = '<tr><td colspan="4" style="text-align: center;">Carregando produtos...</td></tr>';
 
@@ -58,8 +59,8 @@ async function fetchProducts() {
         console.error('Erro ao buscar produtos:', error);
         const productsTableBody = document.getElementById('productsTableBody');
         if (productsTableBody) productsTableBody.innerHTML = `<tr><td colspan="4" style="color: red; text-align: center;">Erro ao carregar produtos: ${error.message}</td></tr>`;
-        // CHAMADA ATUALIZADA: Adicionado o quarto 'false'
-        toggleTableVisibility(true, false, false, false); // Mostra o título e a tabela com a mensagem de erro
+        // CHAMADA ATUALIZADA: Adicionado o quinto 'false'
+        toggleTableVisibility(true, false, false, false, false); // Mostra o título e a tabela com a mensagem de erro
     }
 }
 
@@ -79,16 +80,16 @@ function displayProducts(products) {
                 row.insertCell().textContent = `R$ ${parseFloat(product.precoVenda).toFixed(2).replace('.', ',')}`; // Formata para BRL
             });
         }
-        // CHAMADA ATUALIZADA: Adicionado o quarto 'false'
-        toggleTableVisibility(true, false, false, false); // Mostra a tabela de produtos, esconde a de clientes
+        // CHAMADA ATUALIZADA: Adicionado o quinto 'false'
+        toggleTableVisibility(true, false, false, false, false); // Mostra a tabela de produtos, esconde a de clientes
     }
 }
 
 // Função para buscar clientes do seu back-end
 async function fetchClients() {
     try {
-        // CHAMADA ATUALIZADA: Adicionado o quarto 'false'
-        toggleTableVisibility(false, false, false, false); // Oculta tudo antes de carregar
+        // CHAMADA ATUALIZADA: Adicionado o quinto 'false'
+        toggleTableVisibility(false, false, false, false, false); // Oculta tudo antes de carregar
         const clientsTableBody = document.getElementById('clientsTableBody');
         if (clientsTableBody) clientsTableBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Carregando clientes...</td></tr>';
 
@@ -106,8 +107,8 @@ async function fetchClients() {
         console.error('Erro ao buscar clientes:', error);
         const clientsTableBody = document.getElementById('clientsTableBody');
         if (clientsTableBody) clientsTableBody.innerHTML = `<tr><td colspan="5" style="color: red; text-align: center;">Erro ao carregar clientes: ${error.message}</td></tr>`;
-        // CHAMADA ATUALIZADA: Adicionado o quarto 'false'
-        toggleTableVisibility(false, true, false, false); // Mostra o título e a tabela com a mensagem de erro
+        // CHAMADA ATUALIZADA: Adicionado o quinto 'false'
+        toggleTableVisibility(false, true, false, false, false); // Mostra o título e a tabela com a mensagem de erro
     }
 }
 
@@ -128,15 +129,15 @@ function displayClients(clients) {
                 row.insertCell().textContent = client.telefone || 'N/A'; // Lidar com telefone opcional
             });
         }
-        // CHAMADA ATUALIZADA: Adicionado o quarto 'false'
-        toggleTableVisibility(false, true, false, false); // Mostra a tabela de clientes, esconde a de produtos
+        // CHAMADA ATUALIZADA: Adicionado o quinto 'false'
+        toggleTableVisibility(false, true, false, false, false); // Mostra a tabela de clientes, esconde a de produtos
     }
 }
 
 // Função para buscar vendas do seu back-end
 async function fetchSales() {
     try {
-        toggleTableVisibility(false, false, false, false); // Oculta tudo antes de carregar
+        toggleTableVisibility(false, false, false, false, false); // Oculta tudo antes de carregar
         const salesTableBody = document.getElementById('salesTableBody');
         if (salesTableBody) salesTableBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Carregando vendas...</td></tr>';
 
@@ -154,7 +155,7 @@ async function fetchSales() {
         console.error('Erro ao buscar vendas:', error);
         const salesTableBody = document.getElementById('salesTableBody');
         if (salesTableBody) salesTableBody.innerHTML = `<tr><td colspan="5" style="color: red; text-align: center;">Erro ao carregar vendas: ${error.message}</td></tr>`;
-        toggleTableVisibility(false, false, true, false);
+        toggleTableVisibility(false, false, true, false, false); // Adicionado quinto false
     }
 }
 
@@ -176,19 +177,142 @@ function displaySales(sales) {
                 row.insertCell().textContent = sale.itens ? sale.itens.length : 0;
             });
         }
-        toggleTableVisibility(false, false, true, false);
+        toggleTableVisibility(false, false, true, false, false); // Adicionado quinto false
     }
 }
 
-async function registerSale() {
-    const clienteId = 1;
-    const items = [
-        { produtoId: 1, quantidade: 1 },
-        { produtoId: 2, quantidade: 2 }
-    ];
+// --- FUNÇÃO ORIGINAL registerSale() MODIFICADA ---
+async function showRegisterSaleForm() {
+    toggleTableVisibility(false, false, false, false, true); // Mostra apenas o formulário de registro de venda
+    const saleClientSelect = document.getElementById('saleClientSelect');
+    const saleItemsContainer = document.getElementById('saleItemsContainer');
+    saleItemsContainer.innerHTML = ''; // Limpa itens existentes
+
+    await populateClientSelect(saleClientSelect);
+    addSaleItemRow(); // Adiciona uma linha de item inicial
+
+    // Reseta o cálculo do total
+    updateSaleTotalPrice();
+}
+
+// Nova função para popular o select de clientes
+async function populateClientSelect(selectElement) {
+    selectElement.innerHTML = '<option value="">Carregando Clientes...</option>';
+    try {
+        const response = await fetch(`${BASE_URL}/api/clientes`);
+        if (!response.ok) {
+            throw new Error(`Erro ao buscar clientes: ${response.status}`);
+        }
+        const clients = await response.json();
+        selectElement.innerHTML = '<option value="">Selecione um Cliente</option>'; // Opção padrão
+        clients.forEach(client => {
+            const option = document.createElement('option');
+            option.value = client.id;
+            option.textContent = client.nome;
+            selectElement.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Erro ao popular clientes:', error);
+        selectElement.innerHTML = '<option value="">Erro ao carregar clientes</option>';
+    }
+}
+
+// Nova função para popular o select de produtos
+let availableProducts = []; // Para armazenar produtos e seus preços
+async function populateProductSelect(selectElement) {
+    selectElement.innerHTML = '<option value="">Carregando Produtos...</option>';
+    try {
+        const response = await fetch(`${BASE_URL}/api/produtos`);
+        if (!response.ok) {
+            throw new Error(`Erro ao buscar produtos: ${response.status}`);
+        }
+        availableProducts = await response.json(); // Armazena os produtos
+        selectElement.innerHTML = '<option value="">Selecione um Produto</option>'; // Opção padrão
+        availableProducts.forEach(product => {
+            const option = document.createElement('option');
+            option.value = product.id;
+            option.textContent = `${product.nome} (Estoque: ${product.quantidadeEstoque})`;
+            option.dataset.price = product.precoVenda; // Armazena o preço de venda no dataset
+            selectElement.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Erro ao popular produtos:', error);
+        selectElement.innerHTML = '<option value="">Erro ao carregar produtos</option>';
+    }
+}
+
+// Adiciona uma nova linha para item de venda
+function addSaleItemRow() {
+    const saleItemsContainer = document.getElementById('saleItemsContainer');
+    const itemRow = document.createElement('div');
+    itemRow.className = 'sale-item-row';
+    itemRow.innerHTML = `
+        <select class="sale-product-select" required>
+            <!-- Produtos serão carregados aqui -->
+        </select>
+        <input type="number" class="sale-item-quantity" value="1" min="1" required>
+        <button type="button" class="action-button small-button delete-item-button">Remover</button>
+    `;
+    saleItemsContainer.appendChild(itemRow);
+
+    const productSelect = itemRow.querySelector('.sale-product-select');
+    populateProductSelect(productSelect); // Popula o novo select de produto
+    
+    // Adiciona event listener para mudança de produto ou quantidade
+    productSelect.addEventListener('change', updateSaleTotalPrice);
+    itemRow.querySelector('.sale-item-quantity').addEventListener('input', updateSaleTotalPrice);
+    itemRow.querySelector('.delete-item-button').addEventListener('click', () => {
+        itemRow.remove();
+        updateSaleTotalPrice(); // Atualiza o total ao remover
+    });
+
+    updateSaleTotalPrice(); // Atualiza o total ao adicionar uma nova linha
+}
+
+// Calcula e atualiza o total da venda
+function updateSaleTotalPrice() {
+    let total = 0;
+    document.querySelectorAll('.sale-item-row').forEach(row => {
+        const productId = row.querySelector('.sale-product-select').value;
+        const quantity = parseInt(row.querySelector('.sale-item-quantity').value);
+
+        if (productId && quantity > 0) {
+            const selectedProduct = availableProducts.find(p => p.id == productId);
+            if (selectedProduct) {
+                total += selectedProduct.precoVenda * quantity;
+            }
+        }
+    });
+    document.getElementById('saleTotalPrice').textContent = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total);
+}
+
+// Função para submeter o formulário de venda
+async function submitSaleForm(event) {
+    event.preventDefault();
+
+    const clientId = document.getElementById('saleClientSelect').value;
+    const items = [];
+    let isValid = true;
+
+    document.querySelectorAll('.sale-item-row').forEach(row => {
+        const productId = row.querySelector('.sale-product-select').value;
+        const quantity = parseInt(row.querySelector('.sale-item-quantity').value);
+
+        if (!productId || quantity <= 0) {
+            isValid = false;
+            alert('Por favor, selecione um produto e insira uma quantidade válida para todos os itens.');
+            return;
+        }
+        items.push({ produtoId: parseInt(productId), quantidade: quantity });
+    });
+
+    if (!isValid || !clientId) {
+        alert('Por favor, selecione um cliente e verifique todos os itens da venda.');
+        return;
+    }
 
     const saleData = {
-        clienteId: clienteId,
+        clienteId: parseInt(clientId),
         itens: items
     };
 
@@ -208,22 +332,31 @@ async function registerSale() {
 
         const newSale = await response.json();
         console.log('Venda registrada com sucesso:', newSale);
-        alert('Venda registrada com sucesso! ID: ' + newSale.id + '\nValor Total: R$' + newSale.valorTotal);
+        alert('Venda registrada com sucesso! ID: ' + newSale.id + '\nValor Total: ' + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(newSale.valorTotal));
+
+        // Limpa o formulário e volta para a visão inicial
+        document.getElementById('saleRegistrationForm').reset();
+        document.getElementById('saleItemsContainer').innerHTML = ''; // Limpa os itens
+        toggleTableVisibility(false, false, false, false, false); // Oculta tudo
+
+        // Atualiza gráficos e listagens
         fetchWeeklySalesDataForChart();
         fetchProductsDataForChart();
-
+        fetchSales(); // Opcional: para ver a venda na lista
+        fetchProducts(); // Opcional: para ver a atualização do estoque
     } catch (error) {
         console.error('Erro ao registrar venda:', error);
         alert('Falha ao registrar venda: ' + error.message);
     }
 }
 
+
 // --- FUNÇÕES PARA GERENCIAMENTO DE PRODUTOS (CRUD) ---
 
 // Função para buscar produtos para a tabela de CRUD
 async function fetchProductsForCrud() {
     try {
-        toggleTableVisibility(false, false, false, true); // Mostra a seção de Gerenciar Produtos
+        toggleTableVisibility(false, false, false, true, false); // Mostra a seção de Gerenciar Produtos
         const crudProductsTableBody = document.getElementById('crudProductsTableBody');
         if (crudProductsTableBody) crudProductsTableBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Carregando produtos para gerenciamento...</td></tr>';
 
@@ -241,7 +374,7 @@ async function fetchProductsForCrud() {
         console.error('Erro ao buscar produtos para CRUD:', error);
         const crudProductsTableBody = document.getElementById('crudProductsTableBody');
         if (crudProductsTableBody) crudProductsTableBody.innerHTML = `<tr><td colspan="5" style="color: red; text-align: center;">Erro ao carregar produtos: ${error.message}</td></tr>`;
-        toggleTableVisibility(false, false, false, true);
+        toggleTableVisibility(false, false, false, true, false);
     }
 }
 
@@ -278,7 +411,7 @@ function displayProductsForCrud(products) {
         document.getElementById('productCrudForm').reset();
         document.getElementById('productId').value = ''; // Limpa o ID oculto
         document.getElementById('saveProductButton').textContent = 'Salvar'; // Garante que o texto do botão seja 'Salvar'
-        toggleTableVisibility(false, false, false, true);
+        toggleTableVisibility(false, false, false, true, false);
     }
 }
 
@@ -522,10 +655,21 @@ async function fetchProductsDataForChart() {
 
 // Função para renderizar o gráfico de estoque por produto
 function renderStockByProductChart(labels, data) {
-    const ctx = document.getElementById('stockByProductChart').getContext('2d');
+    const canvas = document.getElementById('stockByProductChart');
+    const ctx = canvas.getContext('2d');
 
     if (stockByProductChartInstance) {
         stockByProductChartInstance.destroy();
+    }
+
+    if (data.length === 0) {
+        // Se não houver dados, desenha uma mensagem no canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
+        ctx.font = '16px Poppins';
+        ctx.fillStyle = '#888';
+        ctx.textAlign = 'center';
+        ctx.fillText('Nenhum produto em estoque para exibir.', canvas.width / 2, canvas.height / 2);
+        return; // Sai da função, não tenta criar o gráfico
     }
 
     stockByProductChartInstance = new Chart(ctx, {
@@ -594,10 +738,10 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchWeeklySalesDataForChart();
     fetchProductsDataForChart();
 
-    // Botão Registrar Venda
+    // Botão Registrar Venda - AGORA CHAMA O FORMULÁRIO
     const registerSaleButton = document.getElementById('registerSaleButton');
     if (registerSaleButton) {
-        registerSaleButton.addEventListener('click', registerSale);
+        registerSaleButton.addEventListener('click', showRegisterSaleForm); // Chama a nova função
     } else {
         console.warn("Botão 'Registrar Venda' não encontrado com o ID 'registerSaleButton'.");
     }
@@ -690,13 +834,32 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('productCrudForm').reset(); // Limpa o formulário
             document.getElementById('productId').value = ''; // Limpa o ID oculto
             document.getElementById('saveProductButton').textContent = 'Salvar'; // Reseta o texto do botão
-            toggleTableVisibility(false, false, false, false); // Oculta a seção de gerenciamento
+            toggleTableVisibility(false, false, false, false, false); // Oculta a seção de gerenciamento
         });
     }
 
+    // --- NOVOS LISTENERS PARA O FORMULÁRIO DE REGISTRO DE VENDA ---
+    const saleRegistrationForm = document.getElementById('saleRegistrationForm');
+    const addSaleItemButton = document.getElementById('addSaleItemButton');
+    const cancelSaleRegistrationButton = document.getElementById('cancelSaleRegistrationButton');
+
+    if (saleRegistrationForm) {
+        saleRegistrationForm.addEventListener('submit', submitSaleForm);
+    }
+    if (addSaleItemButton) {
+        addSaleItemButton.addEventListener('click', addSaleItemRow);
+    }
+    if (cancelSaleRegistrationButton) {
+        cancelSaleRegistrationButton.addEventListener('click', () => {
+            document.getElementById('saleRegistrationForm').reset();
+            document.getElementById('saleItemsContainer').innerHTML = ''; // Limpa os itens
+            document.getElementById('saleTotalPrice').textContent = 'R$ 0,00';
+            toggleTableVisibility(false, false, false, false, false); // Oculta o formulário de venda
+        });
+    }
 
     // Opcional: Oculta as tabelas inicialmente e mostra a mensagem de instrução
-    toggleTableVisibility(false, false, false, false);
+    toggleTableVisibility(false, false, false, false, false); // Atualizado para 5 parâmetros
 });
 
 // Adiciona interatividade aos itens de navegação (mantido do código original)

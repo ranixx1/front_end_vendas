@@ -38,7 +38,8 @@
         </div>
 
         <div class="stock-section chart-section">
-            <div class="chart-title">Estoque por Produto</div> <div class="chart-container">
+            <div class="chart-title">Estoque por Produto</div>
+            <div class="chart-container">
                 <canvas id="stockByProductChart"></canvas>
             </div>
         </div>
@@ -104,7 +105,7 @@
                         </tr>
                     </thead>
                     <tbody id="productsTableBody">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
             
@@ -121,10 +122,40 @@
                         </tr>
                     </thead>
                     <tbody id="clientsTableBody">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
 
+            <!-- Seção para Registrar Venda (Formulário) -->
+            <div class="stock-section" id="registerSaleSection" style="display: none;">
+                <h3>Registrar Nova Venda</h3>
+                <form id="saleRegistrationForm">
+                    <div class="form-group">
+                        <label for="saleClientSelect">Cliente:</label>
+                        <select id="saleClientSelect" required>
+                            <option value="">Selecione um Cliente</option>
+                        </select>
+                    </div>
+
+                    <h4>Itens da Venda</h4>
+                    <div id="saleItemsContainer">
+                        <div class="sale-item-row">
+                            <select class="sale-product-select" required>
+                                <option value="">Selecione um Produto</option>
+                            </select>
+                            <input type="number" class="sale-item-quantity" value="1" min="1" required>
+                            <button type="button" class="action-button small-button delete-item-button">Remover</button>
+                        </div>
+                    </div>
+                    <button type="button" class="action-button small-button" id="addSaleItemButton">Adicionar Item</button>
+                    <p style="margin-top: 15px; font-weight: bold;">Total da Venda: <span id="saleTotalPrice">R$ 0,00</span></p>
+                    <div class="form-buttons">
+                        <button type="submit" class="action-button small-button" id="submitSaleButton">Finalizar Venda</button>
+                        <button type="button" class="action-button small-button" id="cancelSaleRegistrationButton">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+            
             <h3 id="salesTableTitle" style="display: none; margin-top: 20px;">Vendas</h3>
             <div class="table-container" id="salesTableContainer" style="display: none;">
                 <table class="data-table" id="salesTable">
@@ -134,34 +165,49 @@
                             <th>Cliente</th>
                             <th>Data</th>
                             <th>Valor Total</th>
-                            <th>Itens</th> </tr>
+                            <th>Itens</th>
+                        </tr>
                     </thead>
                     <tbody id="salesTableBody">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
+
             <div class="stock-section" id="manageProductsSection" style="display: none;">
                 <h3>Gerenciar Produtos</h3>
 
                 <h4>Adicionar/Editar Produto</h4>
                 <form id="productCrudForm">
-                    <input type="hidden" id="productId"> <label for="productCrudName">Nome:</label>
-                    <input type="text" id="productCrudName" required><br><br>
+                    <input type="hidden" id="productId">
+                    <div class="form-group">
+                        <label for="productCrudName">Nome:</label>
+                        <input type="text" id="productCrudName" required>
+                    </div>
 
-                    <label for="productCrudDescription">Descrição:</label>
-                    <input type="text" id="productCrudDescription" required><br><br>
+                    <div class="form-group">
+                        <label for="productCrudDescription">Descrição:</label>
+                        <input type="text" id="productCrudDescription" required>
+                    </div>
 
-                    <label for="productCrudStock">Quantidade em Estoque:</label>
-                    <input type="number" id="productCrudStock" required><br><br>
+                    <div class="form-group">
+                        <label for="productCrudStock">Quantidade em Estoque:</label>
+                        <input type="number" id="productCrudStock" required>
+                    </div>
 
-                    <label for="productCrudCost">Preço de Custo:</label>
-                    <input type="number" step="0.01" id="productCrudCost" required><br><br>
+                    <div class="form-group">
+                        <label for="productCrudCost">Preço de Custo:</label>
+                        <input type="number" step="0.01" id="productCrudCost" required>
+                    </div>
 
-                    <label for="productCrudSalePrice">Preço de Venda:</label>
-                    <input type="number" step="0.01" id="productCrudSalePrice" required><br><br>
+                    <div class="form-group">
+                        <label for="productCrudSalePrice">Preço de Venda:</label>
+                        <input type="number" step="0.01" id="productCrudSalePrice" required>
+                    </div>
 
-                    <button type="submit" class="action-button small-button" id="saveProductButton">Salvar</button>
-                    <button type="button" class="action-button small-button" id="cancelProductCrudButton">Cancelar</button>
+                    <div class="form-buttons">
+                        <button type="submit" class="action-button small-button" id="saveProductButton">Salvar</button>
+                        <button type="button" class="action-button small-button" id="cancelProductCrudButton">Cancelar</button>
+                    </div>
                 </form>
 
                 <h4 style="margin-top: 30px;">Lista de Produtos Cadastrados</h4>
@@ -177,15 +223,13 @@
                             </tr>
                         </thead>
                         <tbody id="crudProductsTableBody">
-                            </tbody>
+                        </tbody>
                     </table>
                 </div>
             </div>
             <p id="initialMessage" style="text-align: center; color: #888; padding: 20px;">
                 Clique em "Listar Produtos" ou "Listar Clientes" ou "Listar Vendas" para ver os dados aqui.
             </p>
-        </div>
-
         </div>
 
         <div class="nav-bar">
