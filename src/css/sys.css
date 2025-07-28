@@ -407,7 +407,7 @@ canvas {
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-    width: fit-content;
+    width: 100%;
     max-width: 100%;
 }
 
@@ -417,15 +417,7 @@ canvas {
     border-collapse: collapse;
     margin-bottom: 0; /* Ajustado para 0, o container já tem margin-bottom */
     background-color: #ffffff;
-    /* Adicionado para rolagem horizontal em telas menores */
-    display: block; /* Garante que a tabela se comporta como um bloco para overflow-x */
-    overflow-x: auto; /* Permite rolagem horizontal */
-    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
     -webkit-overflow-scrolling: touch; /* Melhor rolagem em iOS */
-}
-
-.data-table thead, .data-table tbody, .data-table th, .data-table td, .data-table tr {
-    display: block; /* Cada elemento se comporta como um bloco em mobile */
 }
 
 /* Remover border-collapse e ajustar display para mobile */
@@ -439,10 +431,10 @@ canvas {
     .table-container {
         overflow-x: auto; /* Mantém a rolagem horizontal para o container */
         width: 100%; /* Garante que ocupe a largura total */
+        display: block;
     }
 
     .data-table th, .data-table td {
-        min-width: 100px; /* Garante uma largura mínima para as células */
         padding: 10px;
         font-size: 13px;
         white-space: normal; /* Permite que o texto quebre normalmente dentro das células */
@@ -451,8 +443,8 @@ canvas {
 
 
 .data-table thead tr {
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: #6a4b8a; 
+    color: #ffffff;
     text-align: left;
 }
 
