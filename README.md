@@ -79,7 +79,7 @@ Para rodar este projeto front-end localmente, siga os passos abaixo:
 
 ### Observações sobre as sugestões:
 
-* **Tecnologias Utilizadas:** Adicionei uma explicação sobre o uso do CSS puro em vez do Tailwind para esclarecer a observação anterior.
+* **Tecnologias Utilizadas:** Adicionei uma explicação sobre o uso do CSS puro.
 * **Funcionalidades Implementadas:** Criei uma lista clara das funcionalidades que já estão operacionais, citando os arquivos relevantes.
 * **Próximos Passos e Melhorias:** Adicionei uma seção para indicar o que ainda pode ser desenvolvido, o que é útil para colaboradores ou para seu próprio planejamento futuro.
 * **Como Rodar o Projeto:** Incluí instruções detalhadas sobre como configurar e rodar o projeto localmente, o que é fundamental para qualquer repositório. Enfatizei a dependência do back-end.
